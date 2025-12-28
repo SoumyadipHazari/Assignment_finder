@@ -20,9 +20,9 @@ You are required to build a Assignment solution System web application that allo
 1. Home -- A person will first visit this site then puts the name and based on the named (one for user and another for admin two person will be preexist) the site will redirect to either admin dashboard or user page.
 
 📸 **Home Page**
-![Home Page](home.png)
+![Home page](home.png)
 
-1. Admin -- A superuser with the highest level of access who manages the courses,assignments solution and overall website data (He can upload assignment, can add courses, can update assignment, can delete a particular week of assignment)
+2. Admin -- A superuser with the highest level of access who manages the courses,assignments solution and overall website data (He can upload assignment, can add courses, can update assignment, can delete a particular week of assignment)
 
 📸 **Admin Dashboard**
 ![Admin Dashboard](Admin.png)
