@@ -26,11 +26,13 @@ You are required to build a Assignment solution System web application that allo
 2. Admin -- A superuser with the highest level of access who manages the courses,assignments solution and overall website data (He can upload assignment, can add courses, can update assignment, can delete a particular week of assignment)
 
 📸 **Admin Dashboard**
+
 ![Admin Dashboard](Admin.png)
 
 3. User -- A pre existing user who can go to the website and only access the solutions, it will contains two option either diploma or foundation, based on the user choice it will redirect to the foundation page or diploma page.
 
 📸 **User Dashboard**
+
 ![User Dashboard](User.png)
 
 4. Courses -- Courses or subjects which only admin can add and in that courses there will be weeks where in each week there will be solutions which the admin will uplaod
