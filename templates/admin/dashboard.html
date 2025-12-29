@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block content %}
+<div class="mb-4">
+    <h2>Admin Dashboard</h2>
+    <p class="text-muted">Manage courses and assignment solutions</p>
+</div>
+
+
+<div class="row mb-4">
+
+    <div class="col-md-4 mb-3">
+        <div class="card bg-black text-light shadow-sm">
+            <div class="card-body text-center">
+                <h5>Total Courses</h5>
+                <h2>{{ total_courses }}</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <div class="card bg-black text-light shadow-sm">
+            <div class="card-body text-center">
+                <h5>Total Assignments</h5>
+                <h2>{{ total_assignments }}</h2>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<div class="mb-4">
+    <a href="{{ url_for('admin.add_course') }}" class="btn btn-primary me-2">
+        Add Course
+    </a>
+    <a href="{{ url_for('admin.upload_assignment') }}" class="btn btn-success">
+        Upload Assignment
+    </a>
+</div>
+
+<hr>
+
+
+<h4 class="mb-3">Uploaded Assignments</h4>
+
+{% if assignments %}
+    <div class="table-responsive">
+        <table class="table table-dark table-striped align-middle">
+            <thead>
+                <tr>
+                    <th>Course</th>
+                    <th>Week</th>
+                    <th>Uploaded</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for a in assignments %}
+                    <tr>
+                        <td>{{ a.course.name }}</td>
+                        <td>Week {{ a.week_number }}</td>
+                        <td>{{ a.uploaded_at.strftime("%d %b %Y") }}</td>
+                        <td>
+                            <a
+                                href="{{ url_for('admin.update_assignment', assignment_id=a.id) }}"
+                                class="btn btn-sm btn-warning me-1"
+                            >
+                                Update
+                            </a>
+
+                            <form
+                                method="POST"
+                                action="{{ url_for('admin.delete_assignment', assignment_id=a.id) }}"
+                                style="display:inline;"
+                                onsubmit="return confirm('Delete this assignment?');"
+                            >
+                                <button class="btn btn-sm btn-danger">
+                                    Delete
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% else %}
+    <p class="text-muted">No assignments uploaded yet.</p>
+{% endif %}
+{% endblock %}

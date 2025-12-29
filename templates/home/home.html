@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block title %}Home | Assignment Finder{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-center align-items-center" style="height: 70vh;">
+    <div class="card bg-black text-light p-4" style="width: 400px;">
+
+        <h3 class="text-center mb-3">Assignment Finder</h3>
+        <p class="text-center text-muted">
+            Enter your name to continue
+        </p>
+
+        <form method="POST">
+            <div class="mb-3">
+                <input
+                    type="text"
+                    name="name"
+                    class="form-control bg-dark text-light"
+                    placeholder="Enter your name"
+                    required
+                >
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">
+                Continue
+            </button>
+        </form>
+
+    </div>
+</div>
+{% endblock %}
